@@ -1,13 +1,16 @@
 import React from 'react'
 import Header from '../components/Header'
 import Specialities from '../components/Specialities'
+import TopDoctors from '../components/TopDoctors'
+import Footer from '../components/Footer'
 
 const Home = () => {
   return (
     <div className="pt-16">
       <Header />
       <Specialities />
-      {/* Other home page content will go here */}
+      <TopDoctors />
+      <Footer />
     </div>
   )
 }

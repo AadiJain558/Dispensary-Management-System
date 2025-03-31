@@ -2,12 +2,14 @@ import React, { useState, useEffect } from 'react'
 import { NavLink } from 'react-router-dom'
 import { assets } from '../assets/assets'
 import './Navbar.css'
+import { useTheme } from './ThemeProvider'
+
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [isDarkMode, setIsDarkMode] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [isProfileMenuOpen, setIsProfileMenuOpen] = useState(false);
   const [isLoggedIn, setIsLoggedIn] = useState(false); // This would come from auth context in a real app
+  const { isDarkMode, toggleDarkMode } = useTheme();
   
   useEffect(() => {
     const handleScroll = () => {
@@ -16,11 +18,6 @@ const Navbar = () => {
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
-  
-  const toggleDarkMode = () => {
-    setIsDarkMode(!isDarkMode);
-    // Add actual dark mode implementation here
-  };
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
@@ -101,6 +98,7 @@ const Navbar = () => {
             <button 
               onClick={toggleDarkMode}
               className="dark-mode-button"
+              aria-label={isDarkMode ? "Switch to light mode" : "Switch to dark mode"}
             >
               {isDarkMode ? (
                 <svg xmlns="http://www.w3.org/2000/svg" className="icon" fill="none" viewBox="0 0 24 24" stroke="currentColor">
