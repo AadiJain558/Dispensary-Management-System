@@ -142,7 +142,7 @@ const Navbar = () => {
                 </div>
               </div>
             ) : (
-              <NavLink to="/signup">
+              <NavLink to="/register">
                 <button className="signup-button" onClick={toggleLoginState}>
                   Create Account
                 </button>
@@ -231,7 +231,7 @@ const Navbar = () => {
                   </svg>
                 )}
               </button>
-              <NavLink to="/signup" className="mobile-signup-link">
+              <NavLink to="/register" className="mobile-signup-link">
                 <button className="mobile-signup-button" onClick={toggleLoginState}>
                   Create Account
                 </button>
