@@ -2,7 +2,6 @@ import React from 'react'
 import Header from '../components/Header'
 import Specialities from '../components/Specialities'
 import TopDoctors from '../components/TopDoctors'
-import Footer from '../components/Footer'
 
 const Home = () => {
   return (
@@ -10,7 +9,6 @@ const Home = () => {
       <Header />
       <Specialities />
       <TopDoctors />
-      <Footer />
     </div>
   )
 }
