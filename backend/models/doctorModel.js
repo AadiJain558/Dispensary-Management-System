@@ -1,5 +1,6 @@
 import mongoose from 'mongoose';
-const doctorSchema=new mongoose.Schema({
+
+const doctorSchema = new mongoose.Schema({
     name:{
         type:String,
         required:true,
@@ -31,11 +32,11 @@ const doctorSchema=new mongoose.Schema({
     },
     phoneNumber:{
         type:String,
-        required:true,
+        default:"",
     },
     image:{
         type:String,
-        required:true,
+        default:"https://via.placeholder.com/150",
     },
     about:{
         type:String,
@@ -43,7 +44,7 @@ const doctorSchema=new mongoose.Schema({
     },
     available:{
         type:Boolean,
-        required:true,
+        default:true,
     },
     fees:{
         type:Number,
@@ -55,9 +56,13 @@ const doctorSchema=new mongoose.Schema({
     },
     slots:{
         type:Object,
-        required:true,
+        default:{},
     }  
-},{minimize:false })
+}, { 
+    minimize: false,
+    collection: 'doctors' // Explicitly define collection name
+});
 
-const Doctormodel=mongoose.models.Doctor || mongoose.model('Doctor',doctorSchema);
+// Check if model exists first to avoid model overwrite issues
+const Doctormodel = mongoose.models.Doctor || mongoose.model('Doctor', doctorSchema);
 export default Doctormodel; 
